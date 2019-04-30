@@ -38,7 +38,31 @@
       <h4>Please enter amount to convert</h4>
       <input type="number" v-bind:min="1" v-model.number="somethingConversionValue"/>
 
-      <h2>{{ `Conversion of ${euroConversionValue} to euros = ${euroToSomethingConversion}` }}</h2>
+      <h2>{{ `Conversion of ${somethingConversionValue} to euros = ${somethingToEuroConversion}` }}</h2>
+    </div>
+
+    <div class="something-to-something">
+      <h3>Convert from Any Currency to Any Currency</h3>
+      <h4>Please enter amount to convert</h4>
+      <input type="number" v-bind:min="1" v-model.number="fromConversionValue"/>
+
+      <h4>Please select currency to convert from</h4>
+      <select v-model="fromConversionToEuroRate">
+        <option value="1" selected>Select Currency</option>
+        <option v-for="(rate, country) in currencies.rates" v-bind:value="rate">
+          {{ `${country} (${rate})` }}
+        </option>
+      </select>
+
+      <h4>Please select currency to convert to</h4>
+      <select v-model="toConversionRate">
+        <option value="1" selected>Select Currency</option>
+        <option v-for="(rate, country) in currencies.rates" v-bind:value="rate">
+          {{ `${country} (${rate})` }}
+        </option>
+      </select>
+
+      <h2>{{ `Conversion = ${somethingToSomethingConversion}` }}</h2>
     </div>
 
 
