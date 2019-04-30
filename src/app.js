@@ -23,18 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     computed: {
       euroToSomethingConversion: function(){
-        return (this.euroConversionValue * this.euroToSelectedCurrencyRate).toFixed(2);
+        return (this.euroConversionValue * this.euroToSelectedCurrencyRate);
       },
       somethingToEuroConversion: function(){
-        return (this.somethingConversionValue / this.somethingToEuroCurrencyRate).toFixed(2);
+        return (this.somethingConversionValue / this.somethingToEuroCurrencyRate);
       },
       somethingToSomethingConversion: function(){
-        return ((this.fromConversionValue / this.fromConversionToEuroRate) * this.toConversionRate).toFixed(2);
+        return ((this.fromConversionValue / this.fromConversionToEuroRate) * this.toConversionRate);
       }
     },
     mounted(){
       // get the currencies using getCurrencies method
       this.getCurrencies()
+    },
+    filters: {
+      toTwoDecPlaces: function (value) {
+        return value.toFixed(2);
+      }
     }
   })
 })

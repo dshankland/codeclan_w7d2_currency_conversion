@@ -1,0 +1,5 @@
+.something-to-something, .something-to-euros, .euros-to-something {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 3px;
+}
