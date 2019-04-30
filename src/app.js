@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     el: "#app",
     data: {
       currencies: [],
-      euroConversionValue: 1,
+      conversionValue: 1,
       euroToSelectedCurrencyRate: 1,
-      somethingConversionValue: 1,
       somethingToEuroCurrencyRate: 1,
-      fromConversionValue: 1,
       fromConversionToEuroRate: 1,
       toConversionRate: 1
     },
@@ -23,13 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     computed: {
       euroToSomethingConversion: function(){
-        return (this.euroConversionValue * this.euroToSelectedCurrencyRate);
+        return (this.conversionValue * this.euroToSelectedCurrencyRate);
       },
       somethingToEuroConversion: function(){
-        return (this.somethingConversionValue / this.somethingToEuroCurrencyRate);
+        return (this.conversionValue / this.somethingToEuroCurrencyRate);
       },
       somethingToSomethingConversion: function(){
-        return ((this.fromConversionValue / this.fromConversionToEuroRate) * this.toConversionRate);
+        return ((this.conversionValue / this.fromConversionToEuroRate) * this.toConversionRate);
       }
     },
     mounted(){

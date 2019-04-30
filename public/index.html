@@ -8,11 +8,11 @@
 <body>
   <h1>Currency Converter</h1>
   <div id="app">
+    <h3>Please enter value to convert</h3>
+    <input type="number" v-bind:min="1" v-model.number="conversionValue"/>
 
     <div class="euros-to-something">
       <h3>Convert from Euros to Selected Currency</h3>
-      <h5>Please enter amount of EUR to convert</h5>
-      <input type="number" v-bind:min="1" v-model.number="euroConversionValue"/>
       <h5>Please select currency to convert to</h5>
       <select v-model="euroToSelectedCurrencyRate">
         <option value="1" selected>Select Currency</option>
@@ -27,20 +27,16 @@
       <h3>Convert from Selected Currency to Euros</h3>
       <h5>Please select currency to convert from</h5>
       <select v-model="somethingToEuroCurrencyRate">
-        <option value="" selected>Select Currency</option>
+        <option value="1" selected>Select Currency</option>
         <option v-for="(rate, country) in currencies.rates" v-bind:value="rate">
           {{ `${country} (${rate})` }}
         </option>
       </select>
-      <h5>Please enter amount to convert</h5>
-      <input type="number" v-bind:min="1" v-model.number="somethingConversionValue"/>
       <h3>{{ somethingToEuroConversion | toTwoDecPlaces }}</h3>
     </div>
 
     <div class="something-to-something">
       <h3>Convert from Any Currency to Any Currency</h3>
-      <h5>Please enter amount to convert</h5>
-      <input type="number" v-bind:min="1" v-model.number="fromConversionValue"/>
       <h5>Please select currency to convert from</h5>
       <select v-model="fromConversionToEuroRate">
         <option value="1" selected>Select Currency</option>
