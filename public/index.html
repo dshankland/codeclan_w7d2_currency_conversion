@@ -20,7 +20,7 @@
           {{ `${country} (${rate})` }}
         </option>
       </select>
-      <h3>{{ euroToSomethingConversion | toTwoDecPlaces }}</h3>
+      <h3 class="result">{{ euroToSomethingConversion | toTwoDecPlaces }}</h3>
     </div>
 
     <div class="something-to-euros">
@@ -32,7 +32,7 @@
           {{ `${country} (${rate})` }}
         </option>
       </select>
-      <h3>{{ somethingToEuroConversion | toTwoDecPlaces }}</h3>
+      <h3 class="result">{{ somethingToEuroConversion | toTwoDecPlaces }}</h3>
     </div>
 
     <div class="something-to-something">
@@ -51,7 +51,7 @@
           {{ `${country} (${rate})` }}
         </option>
       </select>
-      <h3>{{ somethingToSomethingConversion | toTwoDecPlaces }}</h3>
+      <h3 class="result">{{ somethingToSomethingConversion | toTwoDecPlaces }}</h3>
     </div>
 
   </div>
