@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Currency Converters</title>
+  <script src="./js/bundle.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <h1>Currency Converter</h1>
+  <div id="app">
+
+    <div class="euros-to-something">
+      <h3>Convert from Euros to Selected Currency</h3>
+      <h4>Please enter amount to convert</h4>
+      <input type="number" v-bind:min="1" v-model.number="euroConversionValue"/>
+      <span>EUR</span>
+
+      <h4>Please select currency to convert to</h4>
+      <select v-model="euroToSelectedCurrencyRate">
+        <option value="1" selected>Select Currency</option>
+        <option v-for="(rate, country) in currencies.rates" v-bind:value="rate">
+          {{ `${country} (${rate})` }}
+        </option>
+      </select>
+      <h2>{{ `Conversion of ${euroConversionValue} EUR = ${euroToSomethingConversion}` }}</h2>
+    </div>
+
+    <div class="something-to-euros">
+      <h3>Convert from Selected Currency to Euros</h3>
+      <h4>Please select currency to convert from</h4>
+      <select v-model="somethingToEuroCurrencyRate">
+        <option value="" selected>Select Currency</option>
+        <option v-for="(rate, country) in currencies.rates" v-bind:value="rate">
+          {{ `${country} (${rate})` }}
+        </option>
+      </select>
+
+      <h4>Please enter amount to convert</h4>
+      <input type="number" v-bind:min="1" v-model.number="somethingConversionValue"/>
+
+      <h2>{{ `Conversion of ${euroConversionValue} to euros = ${euroToSomethingConversion}` }}</h2>
+    </div>
+
+
+  </div>
+</body>
+</html>
